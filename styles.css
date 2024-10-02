@@ -1,0 +1,173 @@
+@import url(https://necolas.github.io/normalize.css/8.0.1/normalize.css);
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: large;
+    display: grid;
+    gap: 24px;
+    grid-template: max-content 1fr / 1fr 1fr;
+}
+
+
+/* New book form */
+
+.form-container {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+}
+
+form * {
+    appearance: none;
+}
+
+form {
+    border-radius: 12px;
+    padding: 12px;
+    border: none;
+}
+
+form legend {
+    padding: 0 4px;
+}
+
+form label {
+    margin: 8px;
+}
+
+fieldset {
+    border-radius: 12px;
+    border: lightgray 1px solid;
+}
+
+input:not([type=submit]),
+textarea {
+    margin: 8px;
+    width: 300px;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    padding: 8px;
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+    border-radius: 12px;
+    resize: none;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    height: 100px;
+}
+
+input:is([type=submit]) {
+    margin: 8px;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: lavenderblush;
+    border: none;
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+}
+
+input:is([type=submit]):hover {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Topbar */
+
+header {
+    background-color: aliceblue;
+    padding: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header>.user-name {
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.topbar>.books-counter {
+    margin: auto 0;
+}
+
+.topbar>.books-counter>.number {
+    padding: 6px;
+    background-color: white;
+}
+
+.topbar {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+}
+
+/* Books list */
+
+.books {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+
+.books>ol,
+.books>li,
+.books p {
+    padding: 0;
+    margin: 0;
+}
+
+.books>.books-list>li {
+    list-style: none;
+    margin: 0 12px;
+}
+
+.books>.books-list>li>.book-item-card {
+    border-radius: 12px;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+}
+
+.books>.books-list>li>.book-item-card>.card-header {
+    display: flex;
+    border-radius: 12px 12px 0 0;
+    padding: 12px;
+    color: black;
+    gap: 18px;
+    align-items: center;
+    background-color: lavender;
+}
+
+.books>.books-list>li>.book-item-card>.card-header>.book-name {
+    font-weight: 600;
+    font-size: larger;
+    flex: 1 0 auto
+}
+
+.books>.books-list>li>.book-item-card>.card-header>.delete-button {
+    border-radius: 12px;
+    padding: 2px;
+    background-color: lavenderblush;
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+}
+
+.books>.books-list>li>.book-item-card>.card-header>.delete-button>img {
+
+    height: 36px;
+    aspect-ratio: 1/1;
+}
+
+.books>.books-list>li>.book-item-card>.card-header>.author {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.books>.books-list>li>.book-item-card>.book-summary {
+    padding: 12px;
+}
+
+.books>.books-list>li>.book-item-card>.book-summary>span {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgba(0, 0, 0, 0.7);
+}

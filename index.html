@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <span class="user-name">Yusuf Jamal</span>
+        <span class="books-counter"><span class="number">0</span> Books</span>
+    </header>
+    <div class="books">
+        <ol class="books-list">
+            <li class="book-item">
+                <div class="book-item-card">
+                    <div class="card-header">
+                        <p class="book-name">Shutter Island</p>
+                        <p class="author">by
+                            <span class="author-name"> New</span>
+                        </p>
+                        <button class="delete-button"><img src="images/delete.png" alt="Delete book button"></button>
+                    </div>
+                    <p class="book-summary"><span>Summary: </span>Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit.
+                        Aut animi ex
+                        ut.
+                        Quibusdam quisquam, modi cumque veniam soluta enim aspernatur porro recusandae atque?
+                        Reprehenderit nulla mollitia, at aut enim tempora!</p>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div id="form-container">
+        <form class="new-book-form">
+            <fieldset>
+                <legend>Add a new book</legend>
+                <p>
+                    <label for="book-name">
+                        Book name
+                    </label>
+                    <input id="book-name" required>
+                </p>
+                <p>
+                    <label for="book-author">
+                        Book author
+                    </label>
+                    <input id="book-author" required>
+                </p>
+                <p>
+                    <label for="book-summary">
+                        Book summary
+                    </label>
+                    <textarea id="book-summary" required></textarea>
+                </p>
+            </fieldset>
+            <input type="submit" value="Add book">
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
