@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header class="topbar">
+    <header class="topbar better-class">
         <span class="user-name">Yusuf Jamal</span>
         <span class="books-counter"><span class="number">0</span> Books</span>
     </header>
@@ -19,17 +20,12 @@
                 <div class="book-item-card">
                     <div class="card-header">
                         <p class="book-name">Shutter Island</p>
-                        <p class="author">by
-                            <span class="author-name"> New</span>
-                        </p>
+                        <p class="author">by <span class="author-name">New</span></p>
                         <button class="delete-button"><img src="images/delete.png" alt="Delete book button"></button>
                     </div>
                     <p class="book-summary"><span>Summary: </span>Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.
-                        Aut animi ex
-                        ut.
-                        Quibusdam quisquam, modi cumque veniam soluta enim aspernatur porro recusandae atque?
-                        Reprehenderit nulla mollitia, at aut enim tempora!</p>
+                        elit. Aut animi exut. Quibusdam quisquam, modi cumque veniam soluta enim aspernatur porro
+                        recusandae atque? Reprehenderit nulla mollitia, at aut enim tempora!</p>
                 </div>
             </li>
         </ol>
@@ -57,10 +53,9 @@
                     <textarea id="book-summary" required></textarea>
                 </p>
             </fieldset>
-            <input type="submit" value="Add book">
+            <input class="submit-button" type="submit" value="Add book">
         </form>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>

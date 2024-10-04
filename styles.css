@@ -1,6 +1,7 @@
 @import url(https://necolas.github.io/normalize.css/8.0.1/normalize.css);
 
-body {
+body
+{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: large;
     display: grid;
@@ -11,36 +12,43 @@ body {
 
 /* New book form */
 
-.form-container {
+.form-container
+{
     grid-row: 2 / 3;
     grid-column: 2 / 3;
 }
 
-form * {
+form *
+{
     appearance: none;
 }
 
-form {
+form
+{
     border-radius: 12px;
     padding: 12px;
     border: none;
 }
 
-form legend {
+form legend
+{
     padding: 0 4px;
 }
 
-form label {
+form label
+{
     margin: 8px;
 }
 
-fieldset {
+fieldset
+{
     border-radius: 12px;
     border: lightgray 1px solid;
 }
 
 input:not([type=submit]),
-textarea {
+textarea
+{
     margin: 8px;
     width: 300px;
     display: block;
@@ -53,16 +61,19 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus
+{
     outline: none;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-textarea {
+textarea
+{
     height: 100px;
 }
 
-input:is([type=submit]) {
+input:is([type=submit])
+{
     margin: 8px;
     border-radius: 12px;
     padding: 12px;
@@ -71,13 +82,15 @@ input:is([type=submit]) {
     border: 1px rgba(0, 0, 0, 0.1) solid;
 }
 
-input:is([type=submit]):hover {
+input:is([type=submit]):hover
+{
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Topbar */
 
-header {
+header
+{
     background-color: aliceblue;
     padding: 14px;
     display: flex;
@@ -85,50 +98,68 @@ header {
     justify-content: space-between;
 }
 
-header>.user-name {
+header > .user-name
+{
     font-size: xx-large;
     font-weight: 600;
 }
 
-.topbar>.books-counter {
+.topbar > .books-counter
+{
     margin: auto 0;
 }
 
-.topbar>.books-counter>.number {
+.topbar > .books-counter > .number
+{
     padding: 6px;
     background-color: white;
 }
 
-.topbar {
+.topbar
+{
     grid-row: 1 / 2;
     grid-column: 1 / 3;
 }
 
 /* Books list */
 
-.books {
+.books
+{
     grid-row: 2 / 3;
     grid-column: 1 / 2;
 }
 
-.books>ol,
-.books>li,
-.books p {
+.books > ol,
+.books > li,
+.books p
+{
     padding: 0;
     margin: 0;
 }
 
-.books>.books-list>li {
+.books > ol
+{
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 12px;
+}
+
+.books > .books-list > li
+{
     list-style: none;
     margin: 0 12px;
 }
 
-.books>.books-list>li>.book-item-card {
+.books > .books-list > li > .book-item-card
+{
     border-radius: 12px;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
 }
 
-.books>.books-list>li>.book-item-card>.card-header {
+.books > .books-list > li > .book-item-card > .card-header
+{
     display: flex;
     border-radius: 12px 12px 0 0;
     padding: 12px;
@@ -138,36 +169,42 @@ header>.user-name {
     background-color: lavender;
 }
 
-.books>.books-list>li>.book-item-card>.card-header>.book-name {
+.books > .books-list > li > .book-item-card > .card-header > .book-name
+{
     font-weight: 600;
     font-size: larger;
     flex: 1 0 auto
 }
 
-.books>.books-list>li>.book-item-card>.card-header>.delete-button {
+.books > .books-list > li > .book-item-card > .card-header > .delete-button
+{
     border-radius: 12px;
     padding: 2px;
     background-color: lavenderblush;
     border: 1px rgba(0, 0, 0, 0.1) solid;
 }
 
-.books>.books-list>li>.book-item-card>.card-header>.delete-button>img {
+.books > .books-list > li > .book-item-card > .card-header > .delete-button > img
+{
 
     height: 36px;
     aspect-ratio: 1/1;
 }
 
-.books>.books-list>li>.book-item-card>.card-header>.author {
+.books > .books-list > li > .book-item-card > .card-header > .author
+{
     font-family: 'Courier New', Courier, monospace;
     font-size: medium;
     color: rgba(0, 0, 0, 0.7);
 }
 
-.books>.books-list>li>.book-item-card>.book-summary {
+.books > .books-list > li > .book-item-card > .book-summary
+{
     padding: 12px;
 }
 
-.books>.books-list>li>.book-item-card>.book-summary>span {
+.books > .books-list > li > .book-item-card > .book-summary > span
+{
     font-family: 'Courier New', Courier, monospace;
     color: rgba(0, 0, 0, 0.7);
 }
