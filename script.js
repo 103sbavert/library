@@ -1,29 +1,25 @@
-let placeholderBookItem = document.querySelector("li.book-item")
-let booksList = document.querySelector("ol.books-list")
-let form = document.querySelector("form.new-book-form")
-let booksCounter = document.querySelector("span.number")
-placeholderBookItem.remove()
 let booksCollection = []
+let booksHtmlList = document.querySelector("ol.books-list")
+let booksCounter = document.querySelector("span.number")
+let form = document.querySelector("form.new-book-form")
 
 function refreshBookList() {
-    booksList.replaceChildren()
+    booksHtmlList.replaceChildren()
     for (let i = 0; i < booksCollection.length; i++) {
-        let book = booksCollection[i]
-        let bookItem = placeholderBookItem.cloneNode(true)
-        bookItem.querySelector(".book-name").textContent = book.bookName
-        bookItem.querySelector(".author-name").textContent = book.bookAuthor
-        bookItem.querySelector(".book-summary").textContent = book.bookSummary
-        bookItem.querySelector("button.delete-button").addEventListener("click", deleteBook)
-        booksList.appendChild(bookItem)
+        let bookitemHtml = booksCollection[i].getHtmlItem()
+
+
+        booksHtmlList.appendChild(bookitemHtml)
     }
 
-    booksCounter.textContent = booksList.children.length
+    booksCounter.textContent = booksCollection.length
 }
 
 function addBook(event) {
     event.preventDefault()
 
-    let book = new Book(form.querySelector("input#book-name").value,
+    let book = new BookItem(booksCollection.length,
+        form.querySelector("input#book-name").value,
         form.querySelector("input#book-author").value,
         form.querySelector("textarea#book-summary").value
     )
@@ -34,19 +30,64 @@ function addBook(event) {
 }
 
 function deleteBook(event) {
-    let bookName = event.target.closest("div.book-item-card").querySelector(".book-name").textContent
-    let bookFinder = (value) => value.bookName != bookName
+    let bookId = event.target.closest("li.book-item").id
+    let bookFinder = (value) => value.id != bookId
 
     booksCollection = booksCollection.filter(bookFinder)
     refreshBookList()
 }
 
-function Book(bookName, bookAuthor, bookSummary) {
-    this.bookName = bookName;
-    this.bookAuthor = bookAuthor;
-    this.bookSummary = bookSummary;
+class BookItem {
+
+    constructor(id, bookName, bookAuthor, bookSummary) {
+        this.id = id
+        this.name = bookName
+        this.author = bookAuthor
+        this.summary = bookSummary
+    }
+
+    getHtmlItem() {
+        let listItem = document.createElement("li")
+        listItem.id = this.id
+        listItem.className = "book-item"
+        let bookCard = document.createElement("div")
+        bookCard.className = "book-item-card"
+        let cardHeader = document.createElement("div")
+        cardHeader.className = "card-header"
+        let name = document.createElement("p")
+        name.className = "book-name"
+        let author = document.createElement("p")
+        author.className = "author"
+        author.append("by ")
+        let authorName = document.createElement("span")
+        authorName.className = "author-name"
+        let deleteButton = document.createElement("button")
+        deleteButton.className = "delete-button"
+        let deleteButtonImg = document.createElement("img")
+        deleteButtonImg.src = "images/delete.png"
+        deleteButtonImg.alt = "Delete book button"
+        let bookSummary = document.createElement("p")
+        bookSummary.className = "book-summary"
+        let bookSummaryStart = document.createElement("span")
+        bookSummaryStart.append("Summary: ")
+
+        listItem.appendChild(bookCard)
+        bookCard.append(cardHeader, bookSummary)
+        cardHeader.append(name, author, deleteButton)
+        author.appendChild(authorName)
+        deleteButton.appendChild(deleteButtonImg)
+        bookSummary.appendChild(bookSummaryStart)
+
+        name.append(this.name)
+        authorName.append(this.author)
+        bookSummary.append(this.summary)
+
+        deleteButton.addEventListener("click", deleteBook)
+
+        return listItem
+    }
+
+
 }
 
 form.addEventListener("submit", addBook)
-
-
